@@ -14,7 +14,7 @@ function linux_386{
     New-Item -ItemType Directory -Force -Path $path
     go env -u GOARM
     go env -w CGO_ENABLED=1 GOARCH=386 GOOS=android CC=$NDK_ROOT\i686-linux-android21-clang
-    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/trojango.exe
+    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/libtrojango.so
 }
 
 function linux_amd64{
@@ -22,13 +22,13 @@ function linux_amd64{
     New-Item -ItemType Directory -Force -Path $path
     go env -u GOARM
     go env -w CGO_ENABLED=1 GOARCH=amd64 GOOS=android CC=$NDK_ROOT\x86_64-linux-android21-clang
-    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/trojango.exe
+    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/libtrojango.so
 }
 function linux_armv7{
     $path = $jni_libs_path+"armeabi-v7a"
     New-Item -ItemType Directory -Force -Path $path
     go env -w CGO_ENABLED=1 GOARCH=arm GOOS=android GOARM=7 CC=$NDK_ROOT\armv7a-linux-androideabi21-clang
-    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/trojango.exe
+    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/libtrojango.so
 }
 
 function linux_armv8{
@@ -36,7 +36,7 @@ function linux_armv8{
     New-Item -ItemType Directory -Force -Path $path
     go env -u GOARM
     go env -w CGO_ENABLED=1 GOARCH=arm64 GOOS=android CC=$NDK_ROOT\aarch64-linux-android21-clang
-    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/trojango.exe
+    go build -v -tags "full" -trimpath -ldflags="-s -w -buildid= $VAR_SETTING" -o $path/libtrojango.so
 }
 
 function win_386{

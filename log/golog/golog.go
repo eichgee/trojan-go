@@ -104,7 +104,7 @@ func New(out FdWriter) *Logger {
 	return &Logger{
 		color:     terminal.IsTerminal(int(out.Fd())),
 		out:       out,
-		timestamp: true,
+		timestamp: false,
 	}
 }
 

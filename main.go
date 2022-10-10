@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	disableSanitazer()
 	flag.Parse()
 	for {
 		h, err := option.PopOptionHandler()
